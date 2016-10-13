@@ -352,7 +352,7 @@ class Harvest(object):
                 except:
                     return resp
             return resp
-        except Exception, e:
+        except Exception as e:
             raise HarvestError(e)
 
 
