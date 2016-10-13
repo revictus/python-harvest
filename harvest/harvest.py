@@ -34,7 +34,9 @@ class Harvest(object):
             self.__email    = email.strip()
             self.__password = password
             if put_auth_in_header:
-                self.__headers['Authorization'] = 'Basic {0}'.format(enc64(b'{self.email}:{self.password}'.format(self=self)))
+                login_info = '{self.email}:{self.password}'.format(self=self)
+                login_bytes = str.encode(login_info)
+                self.__headers['Authorization'] = 'Basic {0}'.format(enc64(login_bytes))
         elif client_id and token:
             self.__auth         = 'OAuth2'
             self.__client_id    = client_id
