@@ -16,7 +16,8 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 metadata = {}
-execfile("harvest/metadata.py", metadata)
+exec(open("harvest/metadata.py").read(), metadata)
+#execfile("harvest/metadata.py", metadata)
 
 # http://pypi.python.org/pypi?:action=list_classifiers
 classifiers = [
